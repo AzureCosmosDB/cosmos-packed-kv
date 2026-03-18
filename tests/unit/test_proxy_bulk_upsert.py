@@ -3,9 +3,6 @@
 All tests use FakeContainerProxy — no live Cosmos needed.
 """
 
-import pytest
-from azure.cosmos.exceptions import CosmosResourceNotFoundError
-
 from packed_kv_cosmos.config import PackingConfig
 from packed_kv_cosmos.packed_container import PackedContainerProxy
 from packed_kv_cosmos.results import BulkResult

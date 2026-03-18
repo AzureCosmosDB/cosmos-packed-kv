@@ -92,7 +92,9 @@ class FakeContainerProxy:
             )
         return copy.deepcopy(doc)
 
-    async def upsert_item(self, body: dict, *, partition_key: Any | None = None, **kwargs: Any) -> dict:
+    async def upsert_item(
+        self, body: dict, *, partition_key: Any | None = None, **kwargs: Any
+    ) -> dict:
         pk = str(partition_key) if partition_key is not None else str(body.get("pk", ""))
         key = (str(body["id"]), pk)
         stored = copy.deepcopy(body)
@@ -149,7 +151,9 @@ class FakeContainerProxy:
         self._store[key] = stored
         return copy.deepcopy(stored)
 
-    async def create_item(self, body: dict, *, partition_key: Any | None = None, **kwargs: Any) -> dict:
+    async def create_item(
+        self, body: dict, *, partition_key: Any | None = None, **kwargs: Any
+    ) -> dict:
         """Create a new item.  Raises ``CosmosResourceExistsError`` if it already exists."""
         pk = str(partition_key) if partition_key is not None else str(body.get("pk", ""))
         key = (str(body["id"]), pk)

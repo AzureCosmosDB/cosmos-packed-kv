@@ -36,14 +36,10 @@ from packed_kv_cosmos.packing import (
     make_root_document_id,
 )
 from packed_kv_cosmos.results import (
-    ERR_CONFLICT_RETRY_EXHAUSTED,
     ERR_INVALID_INPUT,
-    ERR_TOO_LARGE,
-    STATUS_CONFLICT_RETRY_EXHAUSTED,
     STATUS_INVALID_INPUT,
     STATUS_NOT_FOUND,
     STATUS_SUCCESS,
-    STATUS_TOO_LARGE,
     BulkError,
     BulkResult,
     Diagnostics,
@@ -51,14 +47,11 @@ from packed_kv_cosmos.results import (
 )
 from packed_kv_cosmos.storage import (
     CosmosStorage,
-    ETagMismatchError,
     ItemAlreadyExistsError,
     PatchOperationFailedError,
-    PatchPreconditionFailedError,
     PatchTargetNotFoundError,
     StorageInterface,
 )
-
 
 # ---------------------------------------------------------------------------
 # Constants

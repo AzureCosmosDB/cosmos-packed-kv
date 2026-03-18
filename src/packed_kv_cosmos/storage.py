@@ -16,8 +16,8 @@ from __future__ import annotations
 import abc
 from typing import Any, Dict, List, Optional
 
-from azure.cosmos.aio import ContainerProxy, CosmosClient
 from azure.cosmos import exceptions as cosmos_exc
+from azure.cosmos.aio import ContainerProxy, CosmosClient
 
 # ---------------------------------------------------------------------------
 # Abstract storage interface

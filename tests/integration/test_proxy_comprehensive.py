@@ -582,7 +582,11 @@ class TestEdgeCases:
     ) -> None:
         """Unicode strings in item body are preserved."""
         iid = _uid("uni")
-        body = {"id": iid, "name": "\u65e5\u672c\u8a9e\u30c6\u30b9\u30c8", "emoji": "\U0001f525\U0001f680"}
+        body = {
+            "id": iid,
+            "name": "\u65e5\u672c\u8a9e\u30c6\u30b9\u30c8",
+            "emoji": "\U0001f525\U0001f680",
+        }
         await proxy.create_item(body)
 
         read = await proxy.read_item(iid)
@@ -668,8 +672,9 @@ class TestBinPackingDensity:
         )
 
         # Inspect bin density by reading raw bin documents
-        from packed_kv_cosmos.hashing import compute_bucket_id, compute_entry_id
         from collections import Counter
+
+        from packed_kv_cosmos.hashing import compute_bucket_id, compute_entry_id
 
         bin_counter: Counter[str] = Counter()
         for item in inserted:
@@ -682,14 +687,14 @@ class TestBinPackingDensity:
         unique_bins = len(bin_counter)
 
         print(f"\n{'='*60}")
-        print(f"BIN PACKING DENSITY REPORT")
+        print("BIN PACKING DENSITY REPORT")
         print(f"{'='*60}")
         print(f"  Items inserted:        {self.NUM_ITEMS}")
         print(f"  Prefix length:         {self.PREFIX_LEN} ({16**self.PREFIX_LEN} possible bins)")
         print(f"  Unique bins used:      {unique_bins}")
         print(f"  Bins with 2+ entries:  {len(multi_entry_bins)}")
         print(f"  Max entries in a bin:  {max_per_bin}")
-        print(f"\n  Top 10 densest bins:")
+        print("\n  Top 10 densest bins:")
         for bucket, count in bin_counter.most_common(10):
             print(f"    bin '{self.NAMESPACE}:{bucket}' -> {count} entries")
         print(f"{'='*60}")

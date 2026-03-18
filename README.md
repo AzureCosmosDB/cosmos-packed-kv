@@ -1,6 +1,6 @@
 # cosmos-packed-kv
 
-> **SAMPLE CODE** 
+> **SAMPLE CODE**  
 > This project is provided as a **sample only**, under the
 > [MIT License](LICENSE). It is **not** an officially supported Microsoft /
 > Azure product and carries **no warranties or guarantees**. Use at your own
